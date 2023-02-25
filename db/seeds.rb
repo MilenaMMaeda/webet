@@ -6,27 +6,39 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Bet.destroy_all
+User.destroy_all
 
-Bet.create(
+user1 = User.create(
+  email: "usuario1@teste.com",
+  password: "123456"
+)
+
+Bet.create!(
+  user: user1,
   description: "vai chover até as 15h",
   amount: 10,
   start_date: DateTime.yesterday,
   end_date: DateTime.tomorrow,
-  status: "open"
+  status: "open",
+  max_users: 5
 )
 
-Bet.create(
+Bet.create!(
+  user: user1,
   description: "Victor vai beber até as 18:30",
   amount: 10,
   start_date: DateTime.yesterday,
   end_date: DateTime.tomorrow,
-  status: "open"
+  status: "open",
+  max_users: 5
 )
 
-Bet.create(
+Bet.create!(
+  user: user1,
   description: "Bruno vai pegar o buquê",
   amount: 10,
   start_date: DateTime.yesterday,
   end_date: DateTime.tomorrow,
-  status: "open"
+  status: "open",
+  max_users: 5
 )
