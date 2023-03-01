@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for(bet), data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :description %>
+    <%= f.input :amount %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.hidden_field :status %>
+    <%= f.submit class: "btn btn-flat" %>
+  <% end %>
+</div>
