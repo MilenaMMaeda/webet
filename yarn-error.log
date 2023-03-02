@@ -1,5 +1,5 @@
 Arguments: 
-  /home/victorhugobrand/.nvm/versions/node/v16.15.1/bin/node /home/victorhugobrand/.nvm/versions/node/v16.15.1/bin/yarn install
+  /home/victorhugobrand/.nvm/versions/node/v16.15.1/bin/node /home/victorhugobrand/.nvm/versions/node/v16.15.1/bin/yarn add bootstrap
 
 PATH: 
   ./bin:./node_modules/.bin:/home/victorhugobrand/.nvm/versions/node/v16.15.1/bin:/home/victorhugobrand/.rbenv/shims:/home/victorhugobrand/.rbenv/bin:/home/victorhugobrand/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/GitHub CLI/:/mnt/c/Users/victo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/victo/AppData/Local/Programs/Microsoft VS Code/bin:/usr/local/sbin
