@@ -7,4 +7,9 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     authorize @bet
   end
+
+  def edit
+    @bet = Bet.find(params[:id])
+    authorize @bet
+  end
 end
