@@ -1,3 +1,6 @@
+
+<div class="container d-flex">
+  <form class="col-md-6 mx-auto">
 <h2>Log in</h2>
 <div class="container d-flex">
 <form class="col-md-6 mx-auto">
@@ -14,10 +17,9 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
+
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <div class="forme"> <%= f.button :submit, "Log in" %> </div>
   </div>
   <%= render "devise/shared/links" %>
-   </form>
-  </div>
-<% end %>
+
