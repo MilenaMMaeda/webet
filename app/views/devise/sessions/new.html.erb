@@ -2,7 +2,9 @@
 <div class="container d-flex">
   <form class="col-md-6 mx-auto">
 <h2>Log in</h2>
-
+<div class="container d-flex">
+<form class="col-md-6 mx-auto">
+    <!-- Conteúdo do formulário aqui -->
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -20,6 +22,4 @@
     <div class="forme"> <%= f.button :submit, "Log in" %> </div>
   </div>
   <%= render "devise/shared/links" %>
-<% end %>
-</form>
-</div>
+

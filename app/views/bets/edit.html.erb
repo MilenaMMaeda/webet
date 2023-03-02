@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(#181D31)">
+    <h1><strong>Edit Bet</strong></h1>
+  </div>
+  <br>
+ <div class="container">
+  <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :description %>
+    <%= f.input :amount %>
+    <%= f.input :status %>
+    <%= f.input :max_users %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.input :result, label: 'Result: Check for true, uncheck for false' %>
+    <%= f.submit class: "btn btn-flat" %>
+  <% end %>
+</div>
+ <div class="text-center">
+    <%= link_to "Back to list", bets_path, class: "btn btn-flat" %>
+  </div>
+</div>
