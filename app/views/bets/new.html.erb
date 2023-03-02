@@ -1,2 +1,12 @@
-  <h1>New bet:</h1>
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(#181D31)">
+    <h1><strong>Create a new Bet</strong></h1>
+  </div>
+  <br>
   <%= render 'form', bet: @bet %>
+ <div class="text-center">
+    <%= link_to "Back to list", bets_path, class: "btn btn-flat" %>
+  </div>
+</div>
+
+<%# confirmar esse bets_path %>

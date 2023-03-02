@@ -35,7 +35,7 @@ class BetsController < ApplicationController
   def update
     @bet = Bet.find(params[:id])
     @bet.update(bet_params)
-    redirect_to Bet.find(params[:id])
+    redirect_to Bet.find(params[:id]), notice: "Bet was successfully updated"
     authorize @bet
   end
 
