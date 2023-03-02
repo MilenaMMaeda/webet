@@ -1,5 +1,10 @@
 class BetsController < ApplicationController
   def index
-    @bets = Bet.all
+    @bet = policy_scope(Bet)
+  end
+
+  def show
+    @bet = Bet.find(params[:id])
+    authorize @bet
   end
 end
