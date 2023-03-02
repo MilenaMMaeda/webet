@@ -36,10 +36,30 @@ body{
   color: #fff;
   position: absolute;
   font-size: 25px;
-  left: 10px;
+  left: 30px;
   top: 30px;
   margin: auto;
 }
+
+.side-bar .money{
+  color: #fff;
+  font-size: 36px;
+  padding: 5px 30px;
+  line-height: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.side-bar .avatar{
+  margin: 50px;
+  height: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 90px;
+  left: 80px;
+
+}
+
 
 .side-bar .menu .item{
   position:relative;
@@ -57,6 +77,7 @@ body{
 
 .side-bar .menu .item a:hover{
   background: #fff;
+  color: black;
   transition: 0.3s ease;
 
 }
@@ -72,6 +93,8 @@ body{
   margin: 20px;
   transition: 0.3s ease;
 }
+
+
 
 .side-bar .menu .item .sub-menu{
   background: rgba(255,255,255 , 0.1);
