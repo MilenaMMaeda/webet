@@ -47,6 +47,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 
+# Install gem faker to use
+gem "faker"
 
 # Use Sass to process CSS
 gem "sassc-rails"

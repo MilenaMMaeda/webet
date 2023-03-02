@@ -42,3 +42,5 @@ Bet.create!(
   status: "open",
   max_users: 5
 )
+
+puts "Seed completed"
