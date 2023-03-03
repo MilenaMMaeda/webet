@@ -1,7 +1,25 @@
-<p> Description: <%= @bet.description %></p>
-
-<p> Amount: <%= @bet.amount %></p>
-
+<div class="container">
+  <h1>Bet</h1>
+</div>
+<div class="show-container">
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><p>Description:</p></h5>
+      <p class="card-text"><%= @bet.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><p>Amount: <%= @bet.amount %></p></li>
+      <li class="list-group-item"><p>Start date: <%= @bet.start_date %></p></li>
+      <li class="list-group-item"><p>End date: <%= @bet.end_date %></p></li>
+      <li class="list-group-item"><p>Status: <%= @bet.status %></p></li>
+      <li class="list-group-item"><p>Max users: <%= @bet.max_users %></p></li>
+    </ul>
+    <div class="card-body">
+      <%= link_to "Back", bets_path %>
+    </div>
+  </div>
+</div>
 
 
     <%#
