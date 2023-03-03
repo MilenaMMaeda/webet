@@ -1,6 +1,6 @@
 class BetsController < ApplicationController
   def index
-    @bet = policy_scope(Bet)
+    @bets = policy_scope(Bet)
   end
 
   def show
