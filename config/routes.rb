@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'wallet/show'
   devise_for :users
   root to: "pages#home"
   resources :bets
@@ -6,4 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :users do
+    resource :wallet
+  end
 end
