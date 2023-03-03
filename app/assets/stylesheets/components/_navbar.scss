@@ -41,6 +41,10 @@ body{
   margin: auto;
 }
 
+.side-bar .img-profile{
+  border-radius: 50%;
+}
+
 .side-bar .money{
   color: #fff;
   font-size: 36px;
@@ -92,7 +96,6 @@ body{
 
 
 .side-bar .menu .item .sub-menu{
-  background: rgba(255,255,255 , 0.1);
   display:none;
 }
 
