@@ -1,4 +1,7 @@
 class BetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
+
+
   def index
     @bets = policy_scope(Bet)
     # if @bet.user == @bet.max_users
@@ -9,6 +12,7 @@ class BetsController < ApplicationController
   def show
     @bet = Bet.find(params[:id])
     authorize @bet
+    # raise
   end
 
   def new
@@ -42,6 +46,7 @@ class BetsController < ApplicationController
     redirect_to Bet.find(params[:id]), notice: "Bet was successfully updated"
     authorize @bet
   end
+
 
   def destroy
     @bet = Bet.find(params[:id])

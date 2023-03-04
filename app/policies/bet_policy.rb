@@ -35,4 +35,9 @@ class BetPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def vote?
+    !user.user_bets.exists?(bet_id: record.id)
+  end
+
 end
