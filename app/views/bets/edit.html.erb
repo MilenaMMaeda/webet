@@ -11,6 +11,7 @@
     <%= f.input :max_users %>
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :result, label: 'Result: Check for true, uncheck for false' %>
     <%= f.submit class: "btn btn-flat" %>
   <% end %>

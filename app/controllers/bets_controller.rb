@@ -1,6 +1,9 @@
 class BetsController < ApplicationController
   def index
     @bets = policy_scope(Bet)
+    # if @bet.user == @bet.max_users
+    #   block
+    # end
   end
 
   def show
@@ -18,10 +21,11 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.new(bet_params)
+    puts bet_params
     @bet.user = current_user
     authorize @bet
       if @bet.save
-        redirect_to bet_path(@bet), notice: "Bet was successfully created"
+        redirect_to bets_path(@bet), notice: "Bet was successfully created"
       else
         render :new, status: :unprocessable_entity
       end
@@ -39,11 +43,18 @@ class BetsController < ApplicationController
     authorize @bet
   end
 
+  def destroy
+    @bet = Bet.find(params[:id])
+    @bet.destroy
+    redirect_to bets_path
+    authorize @bet
+  end
+
   private
 
 
   def bet_params
-    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users)
+    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users, :photo)
   end
 
 end
