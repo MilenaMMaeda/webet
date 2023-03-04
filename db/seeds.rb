@@ -9,7 +9,7 @@ Bet.destroy_all
 User.destroy_all
 
 user1 = User.create(
-  email: "usuario1@teste.com",
+  email: "umilena@gmail.com",
   password: "123456"
 )
 

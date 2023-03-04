@@ -1,9 +1,9 @@
-<p> Description: <%= @bet.description %></p>
+# <p> Description: <%= @bet.description %></p>
 
-<p> Amount: <%= @bet.amount %></p>
+# <p> Amount: <%= @bet.amount %></p>
 
-<p> User: <%= current_user.email %></p>
-<p> User: <%= current_user.wallet.balance %></p>
+# <p> User: <%= current_user.email %></p>
+# <p> User: <%= current_user.wallet.balance %></p>
 
 
 
@@ -13,7 +13,7 @@
   <%# raise %>
 </form>
 
-<% if @bet.voted? %>
+<% if UserBet.where(user_id: current_user.id, bet_id: @bet.id).present? %>
   <p>Votes </p>
   <p>Voted by: </p>
   <% @bet.user_bets.each do |user_bet| %>
@@ -21,3 +21,34 @@
     <%= user_bet.answer %>
   <% end %>
 <% end %>
+
+<div class="container">
+  <h1>Bet</h1>
+</div>
+<div class="show-container">
+  <div class="card" style="width: 30rem;">
+  <%# <img src="..." class="card-img-top" alt="..."> %>
+      <% if @bet.photo.attached? %>
+        <%= cl_image_tag(@bet.photo.key, crop: :fill) %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><p>Description:</p></h5>
+      <p class="card-text"><%= @bet.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><p>Amount: <%= @bet.amount %></p></li>
+      <li class="list-group-item"><p>Start date: <%= @bet.start_date %></p></li>
+      <li class="list-group-item"><p>End date: <%= @bet.end_date %></p></li>
+      <li class="list-group-item"><p>Status: <%= @bet.status %></p></li>
+      <li class="list-group-item"><p>Max users: <%= @bet.max_users %></p></li>
+    </ul>
+    <div class="card-body">
+      <%= link_to "Back", bets_path %>
+    <% if policy(@bet).destroy? %>
+      <%= link_to "Delete", delete_bet_path(@bet.id),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat" %>
+    <% end %>
+    </div>
+  </div>
+</div>
