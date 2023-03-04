@@ -1,12 +1,9 @@
 class BetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 
   def index
     @bets = policy_scope(Bet)
-    # if @bet.user == @bet.max_users
-    #   block
-    # end
   end
 
   def show
@@ -59,7 +56,7 @@ class BetsController < ApplicationController
 
 
   def bet_params
-    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users, :photo)
+    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users, :photo, :result)
   end
 
 end
