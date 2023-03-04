@@ -2,15 +2,22 @@
 
 <p> Amount: <%= @bet.amount %></p>
 
+<p> User: <%= current_user.email %></p>
+<p> User: <%= current_user.wallet.balance %></p>
 
 
-    <%#
-    t.string "description", null: false
-    t.integer "amount", null: false
-    t.datetime "start_date", null: false
-    t.datetime "end_date", null: false
-    t.boolean "result"
-    t.string "status", null: false
-    t.integer "max_users", null: false
-    t.bigint "user_id", null: false
-    %>
+
+<form action= <%= "/bets/#{@bet.id}/user_bet_create" %> method="post">
+  <button name="answer" value="true" class="btn btn-primary"<%= (UserBet.where(user_id: current_user.id, bet_id: @bet.id).present? || (current_user.wallet.balance < @bet.amount) || !(@bet.start_date..@bet.end_date).cover?(Date.today)) ? "disabled" : "" %>>Bet for true</button>
+  <button name="answer" value="false" class="btn btn-primary"<%= (UserBet.where(user_id: current_user.id, bet_id: @bet.id).present? || (current_user.wallet.balance < @bet.amount) || !(@bet.start_date..@bet.end_date).cover?(Date.today)) ? "disabled" : "" %>>Bet for false</button>
+  <%# raise %>
+</form>
+
+<% if @bet.voted? %>
+  <p>Votes </p>
+  <p>Voted by: </p>
+  <% @bet.user_bets.each do |user_bet| %>
+    <%= user_bet.user.email %>
+    <%= user_bet.answer %>
+  <% end %>
+<% end %>

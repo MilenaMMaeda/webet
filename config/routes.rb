@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :wallet
   end
+
+  post "bets/:bet_id/user_bet_create", to: "user_bets#create", as: "user_bet"
+
 end

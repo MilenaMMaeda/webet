@@ -1,4 +1,7 @@
 class BetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
+
+
   def index
     @bets = Bet.all
   end
@@ -6,6 +9,7 @@ class BetsController < ApplicationController
   def show
     @bet = Bet.find(params[:id])
     authorize @bet
+    # raise
   end
 
   def new
@@ -38,6 +42,14 @@ class BetsController < ApplicationController
     redirect_to Bet.find(params[:id]), notice: "Bet was successfully updated"
     authorize @bet
   end
+
+  # def vote
+  #   @bet = Bet.find(params[:id])
+  #   @bet.vote(params[:vote], current_user)
+  #   redirect_to @bet
+  #   authorize @bet
+  # end
+
 
   private
 
