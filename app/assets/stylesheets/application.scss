@@ -14,10 +14,55 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
 
 form {
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 20px;
+  margin: 50px;
+  padding: 50px;
   box-shadow: 0px 0px 10px #888888;
+}
+
+nomehome{
+text-align: center;
+}
+
+h1 {
+
+  color: red;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-outline-info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  margin: 8px;
+}
+
+.form-text {
+  text-align: center;
+  color:black;
+  font-size: 18px;
+  margin: 8px;
+}
+
+.title-text {
+  text-align: center;
+  color:black;
+  font-size: 24px;
+  margin: 8px;
+  font-weight: bold;
+
 }
