@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Dashboard</h1>
-  <h5>Welcome back, user!</h5>
+  <h5>Welcome back, <%= current_user.email %>!</h5>
   <%# add name a name column to users %>
 </div>
 <div class="container">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-  <div class="status-container" >
+  <%# <div class="status-container"> %>
     <div class="row col-8 col-lg-12">
       <%# <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-4"> %>
       <div class="col">
@@ -15,7 +15,7 @@
           <div class="d-flex align-items-center">
             <div>
               <p class="mb-0 text-secondary">Balance</p>
-              <%# <h4 class="my-1 text-info"><%= current_user.wallet.balance %>
+              <h4 class="my-1 text-info"><%= current_user.wallet.balance %></h4>
               <%# <p class="mb-0 font-13">+2.5% from last week</p> %>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa-sharp fa-solid fa-brazilian-real-sign"></i>
@@ -34,21 +34,6 @@
               <%# <p class="mb-0 font-13">- 2.4% from last week</p> %>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fa-sharp fa-solid fa-chart-line-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col">
-      <div class="card radius-10 border-start border-0 border-3 border-success">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <div>
-              <%# ? <p class="mb-0 text-secondary">Ranking</p>
-              ? <h4 class="my-1 text-success">34.6%</h4>
-              ? <p class="mb-0 font-13">-4.5% from last week</p> %>
-            </div>
-            <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa-solid fa-chart-mixed"></i>
             </div>
           </div>
         </div>
@@ -86,6 +71,6 @@
       <% end %>
     </div>
   </div>
-</div>
+<%# </div> %>
 
 <%# <%= link_to "New bet", new_bet_path if policy(Bet).new? %>

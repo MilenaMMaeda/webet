@@ -6,6 +6,14 @@ GIT
       actionpack (>= 5.2)
       activemodel (>= 5.2)
 
+GIT
+  remote: https://github.com/ruby-debug/debase.git
+  revision: a90f2270351ae0f48370d60809ecd82d6110c85c
+  tag: v0.2.5.beta2
+  specs:
+    debase (0.2.5.beta2)
+      debase-ruby_core_source (>= 0.10.12)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,6 +114,7 @@ GEM
     concurrent-ruby (1.2.0)
     crass (1.0.6)
     date (3.3.3)
+    debase-ruby_core_source (3.2.0)
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
@@ -126,6 +135,7 @@ GEM
     faker (3.1.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    flatpickr (4.6.11.0)
     font-awesome-sass (6.3.0)
       sassc (~> 2.0)
     globalid (1.1.0)
@@ -233,6 +243,8 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    ruby-debug-ide (0.7.3)
+      rake (>= 0.8.1)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -297,10 +309,12 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   cloudinary
+  debase!
   debug
   devise
   dotenv-rails
   faker
+  flatpickr
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
@@ -309,6 +323,7 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
+  ruby-debug-ide (~> 0.7.3)
   sassc-rails
   selenium-webdriver
   simple_form!
