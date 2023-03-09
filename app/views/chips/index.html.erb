@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Buy your credits</h1>
+  <div class="row">
+    <% @chips.each do |chip| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= chip.name %></h5>
+             <p>Amount: <%= humanized_money_with_symbol(chip.price) %></p>
+                <%= form_with url: orders_path do %>
+                  <%= hidden_field_tag 'chip_id', chip.id %>
+                  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
