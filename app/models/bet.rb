@@ -15,8 +15,12 @@ class Bet < ApplicationRecord
     self.update_column(:status, "finished")
   end
 
+  def updated_once?
+    updated_once
+  end
+
   def bet_result
     winners
   end
 
- end
+end

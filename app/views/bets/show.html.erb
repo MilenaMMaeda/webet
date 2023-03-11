@@ -50,7 +50,7 @@
           <%= link_to "Delete", delete_bet_path(@bet.id),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% end %>
         <% if policy(@bet).edit? %>
-          <%= link_to "Edit", edit_bet_path(@bet.id) %>
+          <%= link_to "Enter Bet Result", edit_bet_path(@bet.id) %>
         <% end %>
       </div>
     </div>
