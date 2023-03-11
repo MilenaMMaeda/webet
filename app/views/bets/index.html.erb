@@ -60,9 +60,6 @@
             <li class="list-group-item"><p>Amount: <%= bet.amount %></p></li>
             <li class="list-group-item"><p>Status: <%= bet.status %></p></li>
             <li class="list-group-item"><p>Max users: <%= bet.max_users %></p></li>
-              <%# <% if %>
-              <%# <% else %>
-              <%# <% end %>
           </ul>
           <div class="bets-card-body">
             <%= link_to "View bet", bet_path(bet.id) %>
@@ -71,6 +68,6 @@
       <% end %>
     </div>
   </div>
-<%# </div> %>
+</div>
 
 <%# <%= link_to "New bet", new_bet_path if policy(Bet).new? %>
