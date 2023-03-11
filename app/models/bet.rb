@@ -9,7 +9,8 @@ class Bet < ApplicationRecord
     winners = self.user_bets.where(answer: self.result)
     prize = self.amount * self.user_bets.count
     winners.each do |winner|
-      winner.user.wallet.balance += (prize / winners.count)
+      balance = user.wallet.balance
+      winner.user.wallet.update(balance: (balance + (prize / winners.count)))
     end
     self.update_column(:status, "finished")
   end
@@ -17,4 +18,5 @@ class Bet < ApplicationRecord
   def bet_result
     winners
   end
-end
+
+ end
