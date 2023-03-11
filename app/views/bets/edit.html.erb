@@ -6,9 +6,9 @@
  <div class="container">
   <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :description %>
-    <%= f.input :amount %>
-    <%= f.input :status %>
-    <%= f.input :max_users %>
+    <%= f.input :amount, collection: 10..200 %>
+    <%= f.input :status, :collection => %w[open closed canceled] %>
+    <%= f.input :max_users, collection: 1..20 %>
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
     <%= f.input :photo, as: :file %>
