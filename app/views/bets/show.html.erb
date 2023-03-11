@@ -20,11 +20,12 @@
       <p class="card-text"><%= @bet.description %></p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><p>Amount: <%= @bet.amount %></p></li>
-      <li class="list-group-item"><p>Start date: <%= @bet.start_date %></p></li>
-      <li class="list-group-item"><p>End date: <%= @bet.end_date %></p></li>
+      <li class="list-group-item"><p>Amount: R$<%= @bet.amount %></p></li>
+      <li class="list-group-item"><p>Result: <%= @bet.result %></p></li>
       <li class="list-group-item"><p>Status: <%= @bet.status %></p></li>
       <li class="list-group-item"><p>Max users: <%= @bet.max_users %></p></li>
+      <li class="list-group-item"><p>Start date: <%= @bet.start_date %></p></li>
+      <li class="list-group-item"><p>End date: <%= @bet.end_date %></p></li>
       <li class="list-group-item"><p>Total prize: <%= @bet.user_bets.count * @bet.amount %></p></li>
     </ul>
     <div class="container">
@@ -50,7 +51,7 @@
           <%= link_to "Delete", delete_bet_path(@bet.id),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% end %>
         <% if policy(@bet).edit? %>
-          <%= link_to "Edit", edit_bet_path(@bet.id) %>
+          <%= link_to "Enter Bet Result", edit_bet_path(@bet.id) %>
         <% end %>
       </div>
     </div>
