@@ -20,7 +20,7 @@
         <div class="menu-btn">
           <i class="fas fa-bars"></i>
         </div>
-        <div class="side-bar active">
+        <div class="side-bar">
           <div class="close-btn">
             <i class="fas fa-times"></i>
           </div>
@@ -35,7 +35,7 @@
               <a class="sub-btn"><i class="fas fa-eye"></i>Saldo<i class="fas fa-angle-right dropdown"></i></a>
               <div class="sub-menu">
               <% if current_user %>
-                <div class="money"><i class="fas fa-money-bill"></i><%= current_user&.wallet&.balance %></div>
+                <div class="money"><i class="fas fa-money-bill"></i>R$<%= current_user&.wallet&.balance %></div>
               <% end %>
               </div>
               </div>

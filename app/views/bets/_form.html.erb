@@ -2,7 +2,7 @@
   <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :description %>
     <%= f.input :amount, collection: 10..200 %>
-    <%= f.input :status, :collection => %w[open closed canceled] %>
+    <%# <%= f.input :status, :collection => %w[open] %>
     <%= f.input :max_users, collection: 1..20 %>
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
@@ -10,3 +10,8 @@
     <%= f.submit class: "btn btn-flat" %>
   <% end %>
 </div>
+
+  <%# <%= f.input :result, label: 'Option 1', %>
+    <%# :as => :grouped_select, %>
+    <%# :collection => [['Win', ['True', 'False']]], %>
+    <%# :group_method => :last %>
