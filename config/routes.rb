@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'wallet/show'
   devise_for :users
   root to: "pages#home"
+
   resources :bets
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
-  
+
   resources :users do
     resource :wallet
   end

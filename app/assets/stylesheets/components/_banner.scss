@@ -1,10 +1,16 @@
 .banner {
   width: 100vh;
   height: 100vh;
+  background-position: center;
   position: fixed;
   right: 0;
   border: 5px;
   border-color: black;
   top:0;
   z-index: -1;
+}
+
+.banner-home {
+ position: fixed;
+ width: 100%;
 }
