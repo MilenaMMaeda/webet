@@ -6,6 +6,7 @@
 
   <div class="row col-12 col-lg-12 img-center">
     <% @chips.each do |chip| %>
+
       <div class="chips-card" style="width: 20%;  margin: 5">
         <%= form_tag orders_path, method: :post, class: "foorm" do %>
           <%= hidden_field_tag 'chip_id', chip.id %>
@@ -14,6 +15,7 @@
           </button>
           <div class="img-center">
             <h5 class="card-title"><p>Amount: R$ <%= chip.name %></p></h5>
+
           </div>
         <% end %>
       </div>
