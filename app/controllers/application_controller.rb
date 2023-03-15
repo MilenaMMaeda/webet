@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])
   end
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || bets_path
+  end
+
   private
 
   def skip_pundit?

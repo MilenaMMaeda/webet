@@ -6,7 +6,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= chip.name %></h5>
-             <p>Amount: <%= humanized_money_with_symbol(chip.price) %></p>
+              <p>Amount: <%= humanized_money_with_symbol(chip.price) %></p>
                 <%= form_with url: orders_path do %>
                   <%= hidden_field_tag 'chip_id', chip.id %>
                   <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
