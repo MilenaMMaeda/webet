@@ -66,6 +66,8 @@ gem 'money-rails'
 
 gem "pundit"
 
+gem 'stripe_event'
+
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
