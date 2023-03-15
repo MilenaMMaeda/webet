@@ -4,15 +4,45 @@ class WalletsController < ApplicationController
     authorize @wallet
   end
 
-  def update_balance
-    amount = params[:amount].to_i
-    @wallet = current_user.wallet
-    authorize @wallet, :update_balance?
-    @wallet.balance += amount
-    @wallet.save!
-
-    redirect_to user_wallet_path(user_id: current_user.id)
+  def update
+    @wallet = Wallet.find_by(user_id: params[:user_id])
+    authorize @wallet
+    old_balance = @wallet.balance
+    if @wallet.update(wallet_params)
+      withdraw_amount = @wallet.withdraw_amount
+      new_balance = old_balance - withdraw_amount
+      @wallet.update(balance: new_balance)
+      redirect_to user_wallet_path(current_user)
+    else
+      render :show
+    end
   end
+
+  private
+
+  def wallet_params
+    params.require(:wallet).permit(:withdraw_amount)
+  end
+
+  # def update_balance
+  #   @wallet = Wallet.find_by(user_id: params[:user_id])
+  #   authorize @wallet
+  #   amount = params[:amount].to_i
+  #   @wallet.balance += amount
+  #   if @wallet.save
+  #     flash[:notice] = "Balance updated successfully."
+  #   else
+  #     flash[:error] = "Failed to update balance."
+  #   end
+  #   redirect_to user_wallet_path(current_user)
+  # end
+
+  # def update_balance(amount)
+  #   @wallet = Wallet.find_by(user: current_user)
+  #   authorize @wallet
+  #   balance = @wallet.balance
+  #   @wallet.update(balance: (balance + amount))
+  # end
 
 end
 

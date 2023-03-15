@@ -35,13 +35,25 @@ class BetsController < ApplicationController
   def edit
     @bet = Bet.find(params[:id])
     authorize @bet
+
+    if @bet.updated_once?
+      redirect_to bets_path, alert: "Already updated once, contact support"
+    else
+      render :edit
+    end
   end
 
   def update
     @bet = Bet.find(params[:id])
-    @bet.update(bet_params)
-    redirect_to Bet.find(params[:id]), notice: "Bet was successfully updated"
     authorize @bet
+
+    if @bet.updated_once?
+      redirect_to bets_path, alert: "Already updated once, contact support"
+    elsif @bet.update(bet_params.merge(updated_once: true))
+      redirect_to @bet, notice: "Bet was successfully updated"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 
@@ -56,7 +68,7 @@ class BetsController < ApplicationController
 
 
   def bet_params
-    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users, :photo, :result)
+    params.require(:bet).permit(:user, :description, :amount, :start_date, :end_date, :status, :max_users, :photo, :result, :updated_once)
   end
 
 end

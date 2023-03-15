@@ -1,20 +1,23 @@
-<div class="container">
+
+
+<div class="chips-container">
   <h1>Buy your credits</h1>
-  <div class="row">
+</div>
+
+  <div class="row col-12 col-lg-12 img-center">
     <% @chips.each do |chip| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= chip.name %></h5>
-             <p>Amount: <%= humanized_money_with_symbol(chip.price) %></p>
-                <%= form_with url: orders_path do %>
-                  <%= hidden_field_tag 'chip_id', chip.id %>
-                  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-                <% end %>
-            </div>
+
+      <div class="chips-card" style="width: 20%;  margin: 5">
+        <%= form_tag orders_path, method: :post, class: "foorm" do %>
+          <%= hidden_field_tag 'chip_id', chip.id %>
+          <button type="submit" class="img-center">
+            <%= image_tag chip.image_url, class: "card-img-top" %>
+          </button>
+          <div class="img-center">
+            <h5 class="card-title"><p>Amount: R$ <%= chip.name %></p></h5>
+
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
-</div>

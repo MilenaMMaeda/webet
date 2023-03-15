@@ -13,12 +13,18 @@ user1 = User.create(
   password: "123456"
 )
 
-User.last.wallet.update(balance: 200)
+user1.wallet.update(balance: 200)
+user1.save
 
-Chip.create(name: "10", price_cents: 1_000)
-Chip.create(name: "50", price_cents: 5_000)
-Chip.create(name: "100", price_cents: 10_000)
-Chip.create(name: "200", price_cents: 20_000)
+# chip10 = Chip.create(name: "10", price_cents: 2_000)
+# chip50 = Chip.create(name: "50", price_cents: 5_000)
+# chip100 = Chip.create(name: "100", price_cents: 10_000)
+# chip700 = Chip.create(name: "700", price_cents: 70_000)
+
+chip1 = Chip.create(name: "20", price_cents: 2_000, image_url: "https://res.cloudinary.com/deo7maa3v/image/upload/v1678560912/ficha20_fqiqlm.png")
+chip2 = Chip.create(name: "50", price_cents: 5_000, image_url: "https://res.cloudinary.com/deo7maa3v/image/upload/v1678560912/ficha50_h6vn1u.png")
+chip3 = Chip.create(name: "100", price_cents: 10_000, image_url: "https://res.cloudinary.com/deo7maa3v/image/upload/v1678560412/ficha100_hyhjvu.png")
+chip4 = Chip.create(name: "700", price_cents: 70_000, image_url: "https://res.cloudinary.com/deo7maa3v/image/upload/v1678561020/ficha700_fsbrva.png")
 
 Bet.create!(
   user: user1,

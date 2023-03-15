@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'wallet/show'
   devise_for :users
   root to: "pages#home"
   resources :bets
@@ -13,10 +12,14 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
-  
+
   resources :users do
     resource :wallet
   end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
+  post '/users/:user_id/wallet/update_balance', to: 'wallets#update_balance', as: 'update_balance'
 
   post "bets/:bet_id/user_bet_create", to: "user_bets#create", as: "user_bet"
   delete 'bets/:id', to: 'bets#destroy', as: 'delete_bet'
