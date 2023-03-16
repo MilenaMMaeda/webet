@@ -11,6 +11,7 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <%= image_tag("imagem_homepage2.jpg", alt: "amigos se divertindo", class:"banner-home") %>
 =======
 
@@ -55,6 +56,33 @@ Welcome
       </div>
 </div>
 >>>>>>> 54f6d78397ade7876758ff4f984d967368f4dfd8
+=======
+  <div class="container">
+      <%= image_tag("imagem_homepage2.jpg", alt: "amigos se divertindo", class:"banner-home") %>
+      <span class="text first-text">We</span>
+      <span class="text sec-text">Bet</span>
+    </div>
+
+    <script>
+      const text = document.querySelector(".sec-text");
+
+      const textLoad = () => {
+          setTimeout(() => {
+              text.textContent = "Bet";
+          }, 0);
+          setTimeout(() => {
+              text.textContent = "Doubt";
+          }, 1000);
+          setTimeout(() => {
+              text.textContent = "Think";
+          }, 2000); //1s = 1000 milliseconds
+      }
+
+      textLoad();
+      setInterval(textLoad, 3000);
+  </script>
+
+>>>>>>> css/landingpage
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
