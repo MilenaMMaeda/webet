@@ -52,11 +52,11 @@ class OrdersController < ApplicationController
     )
 
     @order.update(checkout_session_id: session.id)
-    # current_user.wallet.balance += chip.price_cents
-    # current_user.save
-    # @wallet = Wallet.find_by(user: current_user)
-    # balance = @wallet.balance
-    # @wallet.update(balance: (balance + (chip.price_cents / 100)))
+    current_user.wallet.balance += chip.price_cents
+    current_user.save
+    @wallet = Wallet.find_by(user: current_user)
+    balance = @wallet.balance
+    @wallet.update(balance: (balance + (chip.price_cents / 100)))
     redirect_to new_order_payment_path(@order)
   end
 
