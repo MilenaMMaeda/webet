@@ -8,26 +8,57 @@
 @import "font-awesome";
 @import 'bootstrap';
 @import "flatpickr/dist/flatpickr.css";
-
+@import url('https //fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 *{
   margin:0;
   padding:0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, 'Poppins', sans-serif;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* set the height of the container to the full viewport height */
+  display: inline-block;
+  position: relative;
+  left: -15px;
+  top: -20px;
+}
+
+.container .text{
+  position: relative;
+  color: #FF0032;
+  font-size: 60px;
+  top: 190px;
+  left: 120px;
+}
+.container .text.first-text{
+  color: #FFF;
+}
+
+.text.sec-text:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+
+@keyframes animate{
+  40%, 60%{
+      left: calc(100% + 4px);
+  }
+  100%{
+      left: 0%;
+  }
 }
 
 form {
