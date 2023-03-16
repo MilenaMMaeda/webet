@@ -1,12 +1,17 @@
 <div class="container">
   <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :description %>
-    <%= f.input :amount %>
-    <%= f.input :status %>
-    <%= f.input :max_users %>
+    <%= f.input :amount, collection: 10..200 %>
+    <%= f.input :status, :as => :hidden, :input_html => { :value => "Open" } %>
+    <%= f.input :max_users, collection: 1..20 %>
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit class: "btn btn-flat" %>
+    <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
+
+  <%# <%= f.input :result, label: 'Option 1', %>
+    <%# :as => :grouped_select, %>
+    <%# :collection => [['Win', ['True', 'False']]], %>
+    <%# :group_method => :last %>

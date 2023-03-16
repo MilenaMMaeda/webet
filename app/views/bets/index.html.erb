@@ -15,7 +15,7 @@
           <div class="d-flex align-items-center">
             <div>
               <p class="mb-0 text-secondary">Balance</p>
-              <h4 class="my-1 text-info"><%= current_user.wallet.balance %></h4>
+              <h4 class="my-1 text-info">R$<%= current_user&.wallet&.balance %></h4>
               <%# <p class="mb-0 font-13">+2.5% from last week</p> %>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa-sharp fa-solid fa-brazilian-real-sign"></i>
@@ -30,7 +30,7 @@
           <div class="d-flex align-items-center">
             <div>
               <p class="mb-0 text-secondary">Loses</p>
-              <h4 class="my-1 text-danger">- $84,245</h4>
+              <h4 class="my-1 text-danger">- R$1000</h4>
               <%# <p class="mb-0 font-13">- 2.4% from last week</p> %>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fa-sharp fa-solid fa-chart-line-down"></i>
@@ -57,12 +57,9 @@
             <p class="card-text"><%= bet.description %></p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><p>Amount: <%= bet.amount %></p></li>
+            <li class="list-group-item"><p>Amount: R$<%= bet.amount %></p></li>
             <li class="list-group-item"><p>Status: <%= bet.status %></p></li>
             <li class="list-group-item"><p>Max users: <%= bet.max_users %></p></li>
-              <%# <% if %>
-              <%# <% else %>
-              <%# <% end %>
           </ul>
           <div class="bets-card-body">
             <%= link_to "View bet", bet_path(bet.id) %>
@@ -71,6 +68,5 @@
       <% end %>
     </div>
   </div>
-<%# </div> %>
+</div>
 
-<%# <%= link_to "New bet", new_bet_path if policy(Bet).new? %>
