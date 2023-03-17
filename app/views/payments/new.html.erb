@@ -1,9 +1,15 @@
 <!-- app/views/payments/new.html.erb -->
 <div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.chip.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+  <div class="payment-card">
+    <div class="card text-center">
+      <div class="card-header">
+        <h1>Checkout</h1>
+      </div>
+      <div class="card-body">
+        <p>Purchase of <strong><%= @order.chip.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
