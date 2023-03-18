@@ -12,6 +12,7 @@ class WalletsController < ApplicationController
       withdraw_amount = @wallet.withdraw_amount
       new_balance = old_balance - withdraw_amount
       @wallet.update(balance: new_balance, withdraw_amount:0)
+      # @wallet.update(balance: new_balance, withdraw_amount:0)
       redirect_to user_wallet_path(current_user)
     else
       render :show

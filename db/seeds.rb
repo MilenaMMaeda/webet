@@ -7,13 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Bet.destroy_all
 User.destroy_all
+Wallet.destroy_all
 
 user1 = User.create(
   email: "milena@gmail.com",
   password: "123456"
 )
 
-User.last.wallet.update(balance: 200)
+Wallet.update(
+  user: user1,
+  balance: "200"
+)
+
+# user1.wallet.update(balance: 200)
+user1.save
+
 
 # chip10 = Chip.create(name: "10", price_cents: 2_000)
 # chip50 = Chip.create(name: "50", price_cents: 5_000)

@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <%= simple_form_for [current_user, @wallet] do |f| %>
+  <%= simple_form_for [current_user, @wallet], html: { class: "withdraw-card" } do |f| %>
     <div class="card text-center">
       <div class="card-header">
         <h1>Withdraw</h1>
@@ -30,7 +30,7 @@
 
     <div class="mb-3">
       <label class="form-label">Bank Name</label>
-      <div class="select">
+      <div class="withdraw-select">
         <select>
           <option></option>
           <option>Banco do Brasil</option>
@@ -44,7 +44,7 @@
 
     <div class="mb-3">
       <label class="form-label">Account Type</label>
-      <div class="select">
+      <div class="withdraw-select">
         <select>
           <option></option>
           <option>Corrente</option>
@@ -68,7 +68,10 @@
       <input type="num" class="form-control" maxlength="11" />
     </div>
 
-    <%= f.input :withdraw_amount %>
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.input :withdraw_amount, collection: 10..1000, :input_html => { :class => 'form-control', autocomplete: 'off'}, :label => 'Withdraw amount' %>
+    <%# <%= f.input :withdraw_amount, collection: [20, 50, 100, 200, 500, 1000, 1500, 2000] %>
+    <div class="d-grid gap-2">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
