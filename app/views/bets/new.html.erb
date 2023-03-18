@@ -1,10 +1,19 @@
 <div class="container">
-  <div class="card-category" style="background-image: linear-gradient(#181D31)">
-    <h1><strong>Create a new Bet</strong></h1>
-  </div>
-  <br>
-  <%= render 'form', bet: @bet %>
- <div class="text-center">
-    <%= link_to "Back to list", bets_path, class: "btn btn-primary" %>
-  </div>
+  <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
+    <div class="card text-center">
+      <div class="card-header">
+        <h1>Create bet</h1>
+      </div>
+    </div>
+    <%= f.input :description %>
+    <%= f.input :amount, collection: 10..100,:input_html => { :class => 'form-control'}, :label => 'Amount' %>
+    <%= f.input :status, :as => :hidden, :input_html => { :value => "Open" } %>
+    <%= f.input :max_users, collection: 1..10,:input_html => { :class => 'form-control'}, :label => 'Max users' %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.input :photo, as: :file %>
+    <div class="d-grid gap-2">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>
