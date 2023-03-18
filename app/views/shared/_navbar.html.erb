@@ -1,68 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
-  <link rel="stylesheet" href="style.css">
-
-  <title>WeBet</title>
-</head>
-<body>
-    <header>
-      <nav>
-
-      <div>
-      </div>
-        <div class="menu-btn">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="side-bar">
-          <div class="close-btn">
-            <i class="fas fa-times"></i>
-          </div>
-          <div class="menu">
-
-              <div class="title-brand"><a href="index.html" style="color: white; text-decoration: none";>WeBet</a></span></div>
-              <div class="w-100 d-flex justify-content-center">
-              <%# <%= image_tag "avatar.jpg", class: "avatar-profile" %>
-              <%# <% if current_user.photo.attached? %>
-              <% if current_user && current_user.photo.attached? %>
+      <header class="header" id="header">
+          <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+          <div class="header_img">   <% if current_user && current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar-profile"  %>
               <% else %>
                 <%= image_tag "avatar.jpg", class: "avatar-profile" %>
               <% end %>
-
-              </div>
-              <div class="item">
-                <a class="sub-btn"><i class="fas fa-eye"></i>Saldo<i class="fas fa-angle-right dropdown"></i></a>
-                <div class="sub-menu">
+               </div>
+      </header>
+      <div class="l-navbar" id="nav-bar">
+          <nav class="nav">
+              <div> <a class="nav_logo", id="nave_logo"> <i class="fa-solid fa-coins"></i> <span class="nav_logo-name">WeBet</span> </a>
+              <div>
+              <div class="nav_list">
+                <a href="/bets" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
                 <% if current_user %>
-                  <div class="money"><i class="fas fa-money-bill"></i>R$<%= current_user&.wallet&.balance %></div>
-                <% end %>
-                </div>
-              </div>
-              <div class="item"><i class=""></i><%= link_to "Dashboard", bets_path %></div>
-              <div class="item"><i class=""></i><%= link_to "Create a Bet", new_bet_path %></div>
-              <div class="sub-menu">
-                <% if user_signed_in? %>
-                  <div class="item"><i class="fas fa-wallet"></i><%= link_to "Wallet", user_wallet_path(current_user.id) %></div>
+                  <a href="/users/<%= current_user.id %>/wallet" class="nav_link"> <i class='fas fa-wallet'></i> <span class="nav_name">Wallet</span> </a>
                 <% else %>
                   <% link_to new_user_session_path %>
                 <% end %>
+                <a href="/bets/new" class="nav_link"> <i class='fa-solid fa-plus'></i> <span class="nav_name">Create a Bet</span> </a>
+                <a href="/chips" class="nav_link"> <i class='fa-solid fa-cart-shopping'></i> <span class="nav_name">Buy chips</span> </a>
+                </div>
+              <div class="item">
+                <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "nav_link" do %>
+                  <i class='bx bx-log-out nav_icon'></i>
+                  <span class="nav_name">Sign Out</span>
+                <% end %>
               </div>
-              <div class="item"><%= link_to "Buy chips", chips_path %></div>
-              <div class="item"><a href="users/sign_in"><i class="fas fa-cogs"></i>Login(temporario)</a></div>
-              <div class="item"><%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete } %></div>
-          </div>
+          </nav>
+      </div>
 
-      </nav>
-    </header>
+      <!--Container Main start-->
+      <div>
+          <h4>Main Components</h4>
+      <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
 
-    <script type="text/javascript">
+      const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+      const toggle = document.getElementById(toggleId),
+      nav = document.getElementById(navId),
+      bodypd = document.getElementById(bodyId),
+      headerpd = document.getElementById(headerId)
+
+
+      if(toggle && nav && bodypd && headerpd){
+      toggle.addEventListener('click', ()=>{
+
+      nav.classList.toggle('show')
+
+      toggle.classList.toggle('bx-x')
+      bodypd.classList.toggle('body-pd')
+      headerpd.classList.toggle('body-pd')
+      })
+      }
+      }
+
+      showNavbar('header-toggle','nav-bar','body-pd','header')
+
+      const linkColor = document.querySelectorAll('.nav_link')
+
+      function colorLink(){
+      if(linkColor){
+      linkColor.forEach(l=> l.classList.remove('active'))
+      this.classList.add('active')
+      reset()
+      }
+      }
+      linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+      });
+    </script>
+
+    <!--Container Main end-->
+    <%# <script type="text/javascript">
+
         $(document).ready(function(){
 
           $('.sub-btn').click(function(){
@@ -80,8 +91,15 @@
             $('.menu-btn').css("visibility", "visible");
           });
 
-        });
-    </script>
+           $('.menu-btn').click(function(){
+            $('.side-bar').addClass('d-block');
+            $('.menu-btn').css("visibility", "hidden");
+          });
 
-</body>
-</html>
+           $('.close-btn').click(function(){
+            $('.side-bar').removeClass('d-block');
+            $('.menu-btn').css("visibility", "visible");
+          });
+
+        });
+    </script> %>
