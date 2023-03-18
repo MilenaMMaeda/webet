@@ -59,6 +59,11 @@ body{
 .avatar-profile {
   border-radius: 50%;
   margin: 0 auto;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .side-bar .menu .item{
