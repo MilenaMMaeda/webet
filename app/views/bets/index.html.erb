@@ -1,6 +1,8 @@
 <div class="container">
-  <div class="amount">
+  <div class="d-flex justify-content-center">
     <h1>Dashboard</h1>
+  </div>
+  <div class="d-flex justify-content-center">
     <h5>Welcome back, <%= current_user.email %>!</h5>
     <%# add name a name column to users %>
   </div>
@@ -9,8 +11,8 @@
     <a href="/users/:user_id/wallet" class="data-card">
       <h3>Balance</h3>
       <h4>R$<%= current_user&.wallet&.balance %></h4>
-      <p>Go to wallet</p>
-      <span class="link-text">
+      <p>Go to your wallet</p>
+      <span class="link-text d-flex justify-content-end">
         <%# Buy chips %>
         <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#FF0032"/>
@@ -33,11 +35,15 @@
             </figure>
             <div class="article-body">
               <h2>Description:</h2>
-              <p>
-                <%= bet.description %>
-              </p>
-              <a href="#" class="read-more">
-                See more <span class="sr-only">about this is some title</span>
+              <p><%= bet.description %></p>
+                <ul class="list-group list-group-flush">
+                  <p>
+                    <li class="list-group-item">Amount: R$<%= bet.amount %></li>
+                    <li class="list-group-item">Status: <%= bet.status %></li>
+                  </p>
+                </ul>
+              <a href="<%= bet_path(bet.id) %>" class="d-flex justify-content-end">
+                <p><span class="sr-only">See more</span></p>
                 <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
