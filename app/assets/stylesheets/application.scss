@@ -72,6 +72,36 @@ form {
   position: fixed;
 }
 
+.container .p {
+  position: relative;
+  color: #ffffff;
+  font-size: 26px;
+  top: 180px;
+  left: 120px;
+  text-shadow: 4px 4px 4px #000000;
+}
+
+.container .estilizado {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.container .estilizadologin {
+  color: #eb2929;
+  font-size: 16px;
+}
+
+form-text {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  margin: 70px;
+  padding: 50px;
+  box-shadow: 0px 0px 10px #888888;
+  width: 25%;
+  margin-left: 180px;
+  position: fixed;
+}
+
 .my-button-class {
   background-color:#FF0032;
   background: #FF0032;
@@ -85,6 +115,21 @@ form {
   margin: 4px;
   margin-top: 15px;
 }
+
+.my-button-class:hover {
+  background-color:#FF0032;
+  background: #FF0032;
+  backdrop-filter:blur(15px);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 13px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px;
+  margin-top: 15px;
+}
+
 
 .my-link-class {
   background-color:#007bff;
@@ -101,7 +146,7 @@ form {
 
 h1 {
 
-  color: red;
+  color: black;
 }
 
 .form-text {
