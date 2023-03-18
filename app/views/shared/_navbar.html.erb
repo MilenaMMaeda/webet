@@ -38,10 +38,16 @@
                 <div class="money"><i class="fas fa-money-bill"></i>R$<%= current_user&.wallet&.balance %></div>
               <% end %>
               </div>
-              </div>
+            </div>
             <div class="item"><i class=""></i><%= link_to "Dashboard", bets_path %></div>
             <div class="item"><i class=""></i><%= link_to "Create a Bet", new_bet_path %></div>
-            <div class="item"><i class="fas fa-wallet"></i><%= link_to "Wallet", user_wallet_path(current_user.id) %>%
+            <div class="sub-menu">
+              <% if user_signed_in? %>
+                <div class="item"><i class="fas fa-wallet"></i><%= link_to "Wallet", user_wallet_path(current_user.id) %></div>
+              <% else %>
+                <% link_to new_user_session_path %>
+              <% end %>
+            </div>
             <div class="item"><%= link_to "Buy chips", chips_path %></div>
             <div class="item"><a href="users/sign_in"><i class="fas fa-cogs"></i>Login(temporario)</a></div>
             <div class="item"><%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete } %></div>

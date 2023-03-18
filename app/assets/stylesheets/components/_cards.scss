@@ -107,32 +107,32 @@
 
 
 // Bets
-.bets-container {
-  --heightCalc: - calc((var(--height) / 2) - 10px);
-  --widthCalc: calc(var(--width) / 2);
-  height: var(--height);
-  width: var(--width);
-  min-width: var(--width);
-  border-radius: 10px;
-  // box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 10px auto;
-  position: relative;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.6));
-  transform: translateY(calc(50% - 10px));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 5px;
-  row-gap: 5px;
+// .bets-container {
+//   --heightCalc: - calc((var(--height) / 2) - 10px);
+//   --widthCalc: calc(var(--width) / 2);
+//   height: var(--height);
+//   width: var(--width);
+//   min-width: var(--width);
+//   border-radius: 10px;
+//   // box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+//   margin: 10px auto;
+//   position: relative;
+//   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.6));
+//   transform: translateY(calc(50% - 10px));
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   column-gap: 5px;
+//   row-gap: 5px;
 
-}
+// }
 
-.bets-card {
-  height: 350px;
-  align-content: space-between;
-  // display: flex;
-  // flex-grow: 1;
-}
+// .bets-card {
+//   height: 350px;
+//   align-content: space-between;
+//   display: flex;
+//   flex-grow: 1;
+// }
 
 // .bets-card-body {
 //   grid-template-columns: repeat(2, 1fr);
@@ -140,15 +140,15 @@
 //   grid-template-columns: auto auto auto;
 // }
 
-div.cards {
-  overflow: hidden;
-  height: 120px;
-  width: 400px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
+// div.cards {
+//   overflow: hidden;
+//   height: 120px;
+//   width: 400px;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+// }
 
 // Show
 div.show-container {
