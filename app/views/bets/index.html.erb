@@ -1,72 +1,51 @@
 <div class="container">
-  <h1>Dashboard</h1>
-  <h5>Welcome back, <%= current_user.email %>!</h5>
-  <%# add name a name column to users %>
-</div>
-<div class="container">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-  <%# <div class="status-container"> %>
-    <div class="row col-8 col-lg-12">
-      <%# <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-4"> %>
-      <div class="col">
-      <div class="card radius-10 border-start border-0 border-3 border-info">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <div>
-              <p class="mb-0 text-secondary">Balance</p>
-              <h4 class="my-1 text-info">R$<%= current_user&.wallet&.balance %></h4>
-              <%# <p class="mb-0 font-13">+2.5% from last week</p> %>
-            </div>
-            <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa-sharp fa-solid fa-brazilian-real-sign"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col">
-      <div class="card radius-10 border-start border-0 border-3 border-danger">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <div>
-              <p class="mb-0 text-secondary">Loses</p>
-              <h4 class="my-1 text-danger">- R$1000</h4>
-              <%# <p class="mb-0 font-13">- 2.4% from last week</p> %>
-            </div>
-            <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fa-sharp fa-solid fa-chart-line-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
+  <div class="amount">
+    <h1>Dashboard</h1>
+    <h5>Welcome back, <%= current_user.email %>!</h5>
+    <%# add name a name column to users %>
   </div>
 
-  <%# <div class="float-right"> %>
-  <div class="bets-container">
-   <div class="row col-8 col-lg-12">
+  <section class="d-flex justify-content-center">
+    <a href="/users/:user_id/wallet" class="data-card">
+      <h3>Balance</h3>
+      <h4>R$<%= current_user&.wallet&.balance %></h4>
+      <p>Go to wallet</p>
+      <span class="link-text">
+        <%# Buy chips %>
+        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#FF0032"/>
+        </svg>
+      </span>
+    </a>
+  </section>
+
+ <section class="d-flex justify-content-center">
+    <div class="articles">
       <% @bets.each do |bet| %>
-        <div class="card" style="width: 18rem;">
-          <% if bet.photo.attached? %>
-            <%= cl_image_tag(bet.photo.key, crop: :fill) %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <% end %>
-          <div class="bets-card-body">
-            <h5 class="card-title"><p>Description:</p></h5>
-            <p class="card-text"><%= bet.description %></p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><p>Amount: R$<%= bet.amount %></p></li>
-            <li class="list-group-item"><p>Status: <%= bet.status %></p></li>
-            <li class="list-group-item"><p>Max users: <%= bet.max_users %></p></li>
-          </ul>
-          <div class="bets-card-body">
-            <%= link_to "View bet", bet_path(bet.id) %>
-          </div>
+        <div class="article-wrapper">
+          <article>
+            <figure>
+              <% if bet.photo.attached? %>
+                <%= cl_image_tag(bet.photo.key, crop: :fill) %>
+              <% else %>
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <% end %>
+            </figure>
+            <div class="article-body">
+              <h2>Description:</h2>
+              <p>
+                <%= bet.description %>
+              </p>
+              <a href="#" class="read-more">
+                See more <span class="sr-only">about this is some title</span>
+                <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
       <% end %>
     </div>
-  </div>
+  </section>
 </div>
-

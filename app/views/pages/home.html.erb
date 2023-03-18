@@ -10,47 +10,31 @@
   <title>WeBet</title>
 </head>
 <body>
+  <div class="container">
+      <%= image_tag("imagem_homepage2.jpg", alt: "amigas se divertindo", class:"banner-home") %>
+      <span class="text first-text">We</span>
+      <span class="text sec-text">Bet</span>
+    </div>
 
-<div class="col-md-6">
-<form>
-<div class="title-text">
-Welcome
+    <script>
+      const text = document.querySelector(".sec-text");
 
-</div>
-  <div class="form-text">
-  Login into your account
-  </div>
-  <div class="d-flex justify-content-between">
-  <button type="button" class="btn btn-outline-danger btn-block btn-sm">
-  <i class="fab fa-google"></i>  Google
-</button>
-  <button type="button" class="btn btn-outline-primary btn-block btn-sm">
-  <i class="fab fa-facebook-f"></i>  Facebook
-</button>
-</div>
-<div class="form-text">
-<hr width="100%" size="8" color="black"> Or continue with <hr width="100%" size="4" color="black">
-</div>
-  <div class="form-group">
-    <label for="inputEmail"></label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="Digite seu e-mail">
-  </div>
-  <div class="form-group">
-    <label for="inputPassword"></label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Digite sua senha">
-    <br>
-  </div>
-  <div class="form-text">
-    <button type="submit" class="btn btn-primary">Login</button>
-  </div>
-</form>
-</div>
+      const textLoad = () => {
+          setTimeout(() => {
+              text.textContent = "Bet";
+          }, 0);
+          setTimeout(() => {
+              text.textContent = "Doubt";
+          }, 1000);
+          setTimeout(() => {
+              text.textContent = "Think";
+          }, 2000); //1s = 1000 milliseconds
+      }
 
-    <div class="container">
-      <div class="banner">
-      <%= image_tag("imagem_homepage.jpg", class: "img-fluid", alt: "amigos se divertindo",) %>
-      </div>
-</div>
+      textLoad();
+      setInterval(textLoad, 3000);
+  </script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

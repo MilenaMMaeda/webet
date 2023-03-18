@@ -8,26 +8,84 @@
 @import "font-awesome";
 @import 'bootstrap';
 @import "flatpickr/dist/flatpickr.css";
-
+@import url('https //fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
-form {
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  // margin: 50px;
-  // padding: 50px;
-  margin: 50px;
-  padding: 50px;
-  box-shadow: 0px 0px 10px #888888;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif, 'Poppins', sans-serif;
 }
 
-nomehome{
-text-align: center;
+.container {
+  display: inline-block;
+  position: relative;
+  left: -15px;
+  top: -20px;
+}
+
+.container .text{
+  position: relative;
+  color: #FF0032;
+  font-size: 60px;
+  top: 190px;
+  left: 120px;
+}
+.container .text.first-text{
+  color: #FFF;
+}
+
+.text.sec-text:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+
+@keyframes animate{
+  40%, 60%{
+      left: calc(100% + 4px);
+  }
+  100%{
+      left: 0%;
+  }
+}
+
+.my-button-class {
+  background-color:#FF0032;
+  background: #FF0032;
+  backdrop-filter:blur(15px);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 13px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px;
+  margin-top: 15px;
+}
+
+.my-link-class {
+  background-color:#007bff;
+  color: #007bff;
+  border-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  margin: 15px;
 }
 
 h1 {
@@ -35,29 +93,18 @@ h1 {
   color: red;
 }
 
-.btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
-.btn-outline-danger {
-  color: #dc3545;
-  border-color: #dc3545;
-}
-.btn-outline-info {
-  color: #17a2b8;
-  border-color: #17a2b8;
-}
-.btn-block {
-  display: block;
-  width: 100%;
-  margin: 8px;
-}
-
 .form-text {
   text-align: center;
   color:black;
   font-size: 18px;
-  margin: 8px;
+  margin: 0px;
+}
+
+.field {
+  text-align: center;
+  color:black;
+  font-size: 18px;
+  margin-top: 15px;
 }
 
 .title-text {
@@ -66,5 +113,4 @@ h1 {
   font-size: 24px;
   margin: 8px;
   font-weight: bold;
-
 }
