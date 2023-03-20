@@ -1,5 +1,5 @@
-<div class="container">
-  <%= simple_form_for [@bet], data: { controller: 'flatpickr' } do |f| %>
+
+  <%= simple_form_for [@bet], html: { class: "bet-form" }, data: { controller: 'flatpickr' } do |f| %>
     <div class="card text-center">
       <div class="card-header">
         <h1>Create bet</h1>
@@ -13,7 +13,6 @@
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
     <%= f.input :photo, as: :file %>
     <div class="d-grid gap-2">
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit 'Create', class: "btn btn-primary" %>
     </div>
   <% end %>
-</div>
