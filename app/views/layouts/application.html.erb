@@ -29,11 +29,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <%# <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> %>
-    <%= favicon_link_tag asset_path('favicon-32x32.png') %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%# <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> %>
+
+    <%# <link rel="shortcut icon" href="/assets/images/webeticon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/webeticon.ico" type="image/x-icon"> %>
   </head>
 
  <body id="body-pd">
