@@ -16,13 +16,99 @@
 @import "pages/index";
 @import "pages/home";
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif, 'Poppins', sans-serif;
+// html, body {
+//   overflow: hidden;
+// }
+
+// *{
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   box-sizing: border-box;
+//   font-family: Poppins, sans-serif;
+// }
+
+/////////// SING-IN //////////////
+
+.my-form-class {
+  position: fixed;
+  width: auto;
+  margin: auto;
+  left: 198px;
+  overflow: hidden;
+  padding: 10px;
+
+  // background-color: #f7f7f7;
+  // border-radius: 10px;
+  // box-shadow: 0px 0px 10px #888888;
+  // align-content: center;
+
+  // margin: 70px;
+  // width: 25%;
+  // margin-left: 180px;
+  // z-index: 1000;
+  // top: 25px;
+  // object-position: center;
 }
 
+.img-fluid {
+  background-image: url(/images/imagem_homepage.jpg);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  max-width: 100%;
+  height: auto;
+  // object-fit: fill;
+  // overflow: hidden;
+
+  // width: 712px;
+  // position: absolute;
+  // width: 619px;
+  // height: 900px;
+  // left: 821px;
+  // top: 0px;
+}
+
+.my-link-class {
+  background-color:#007bff;
+  color: #007bff;
+  border-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  margin: 15px;
+}
+
+h1 {
+  color: black;
+}
+
+.form-text {
+  text-align: center;
+  color:black;
+  font-size: 18px;
+  margin: 0px;
+}
+
+.field {
+  text-align: center;
+  color:black;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.title-text {
+  text-align: center;
+  color:black;
+  font-size: 24px;
+  font-weight: bold;
+  // margin: 8px;
+}
+
+///////////// LANDING PAGE /////////////////
 .container {
   display: inline-block;
   position: relative;
@@ -43,7 +129,6 @@
 .container .text.first-text{
   color: #FFF;
   z-index: 1000;
-
 }
 
 .text.sec-text:before{
@@ -58,28 +143,6 @@
 
 }
 
-@keyframes animate{
-  40%, 60%{
-      left: calc(100% + 4px);
-  }
-  100%{
-      left: 0%;
-  }
-}
-
-// form {
-//   background-color: #f7f7f7;
-//   border-radius: 10px;
-//   margin: 70px;
-//   padding: 50px;
-//   box-shadow: 0px 0px 10px #888888;
-//   width: 25%;
-//   margin-left: 180px;
-//   position: fixed;
-//   z-index: 1000;
-//   top: 25px;
-// }
-
 .container .p {
   position: relative;
   color: #ffffff;
@@ -87,7 +150,6 @@
   top: 180px;
   left: 120px;
   z-index: 1000;
-
 }
 
 .container .estilizado {
@@ -100,16 +162,16 @@
   font-size: 16px;
 }
 
-form-text {
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  margin: 70px;
-  padding: 50px;
-  box-shadow: 0px 0px 10px #888888;
-  width: 25%;
-  margin-left: 180px;
-  position: fixed;
+@keyframes animate{
+  40%, 60%{
+      left: calc(100% + 4px);
+  }
+  100%{
+      left: 0%;
+  }
 }
+
+//////// LANDING PAGE / SIGN-UP ///////////
 
 .my-button-class {
   background-color:#FF0032;
@@ -137,45 +199,4 @@ form-text {
   font-size: 16px;
   margin: 4px;
   margin-top: 15px;
-}
-
-
-.my-link-class {
-  background-color:#007bff;
-  color: #007bff;
-  border-color: #007bff;
-  border: none;
-  border-radius: 10px;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  text-align: center;
-  font-size: 16px;
-  margin: 15px;
-}
-
-h1 {
-
-  color: black;
-}
-
-.form-text {
-  text-align: center;
-  color:black;
-  font-size: 18px;
-  margin: 0px;
-}
-
-.field {
-  text-align: center;
-  color:black;
-  font-size: 18px;
-  margin-top: 15px;
-}
-
-.title-text {
-  text-align: center;
-  color:black;
-  font-size: 24px;
-  margin: 8px;
-  font-weight: bold;
 }
