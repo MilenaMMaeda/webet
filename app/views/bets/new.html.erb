@@ -5,6 +5,7 @@
         <h1>Create bet</h1>
       </div>
     </div>
+    <br>
     <%= f.input :description %>
     <%= f.input :amount, collection: 10..100,:input_html => { :class => 'form-control'}, :label => 'Amount' %>
     <%= f.input :status, :as => :hidden, :input_html => { :value => "Open" } %>

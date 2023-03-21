@@ -1,26 +1,26 @@
-<!-- app/views/payments/new.html.erb -->
-<div class="container">
-  <div class="payment-card">
-    <div class="card text-center">
-      <div class="card-header">
-        <h1>Checkout</h1>
-      </div>
-      <div class="card-body">
-        <p>Purchase of <strong><%= @order.chip.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      </div>
+<div class="pt-5">
+  <section class="d-flex justify-content-center pb-4">
+    <div class="data-card">
+      <h1>Checkout</h1>
+      <h2>Purchase of <strong><%= @order.chip.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h2>
+      <span class="link-text d-flex justify-content-end">
+        <div class="d-grid gap-2">
+          <button id="pay" class="btn btn-primary" >Pay</button>
+          <%# <svg id="pay" width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#FF0032"/>
+          </svg> %>
+          <script src="https://js.stripe.com/v3/"></script>
+          <script>
+            const paymentButton = document.getElementById('pay');
+            paymentButton.addEventListener('click', () => {
+              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+              stripe.redirectToCheckout({
+                sessionId: '<%= @order.checkout_session_id %>'
+              });
+            });
+          </script>
+        </div>
+      </span>
     </div>
-    <div class="d-grid gap-2">
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
-          });
-        });
-      </script>
-    </div>
-  </div>
+  </section>
 </div>
