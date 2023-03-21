@@ -1,54 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>WeBet</title>
-</head>
-<div class="col-md-6">
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> %>
+    <link rel="stylesheet" href="style.css">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "my-form-class"} ) do |f|%>
-  <div class="title-text">
-Welcome
-</div>
-<div class="form-text">
-Login into your account
-</div>
-<div class="d-flex justify-content-between">
-<button type="button" class="btn btn-outline-danger btn-block btn-sm">
-<i class="fab fa-google"></i> Google
-</button>
-<button type="button" class="btn btn-outline-primary btn-block btn-sm">
-<i class="fab fa-facebook-f"></i> Facebook
-</button>
-</div>
-<div class="form-text">
-<hr width="100%" size="2" color="black"> Or continue with <hr width="100%" size="2" color="black">
-</div>
-<div class="form-text">
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <title>WeBet</title>
+  </head>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <body>
+    <div class="col-md-6">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "my-form-class"} ) do |f|%>
+        <div class="title-text">
+          Welcome
+        </div>
+        <div class="form-text">
+          Login into your account
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-danger btn-block btn-sm">
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-block btn-sm">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </button>
+        </div>
+        <div class="form-text">
+          <hr width="100%" size="2" color="black"> Or continue with <hr width="100%" size="2" color="black">
+        </div>
+        <div class="form-text">
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+        <div class="form-text">
+          <div class="actions">
+            <%= f.submit "Log in", class: "my-button-class" %>
+          </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
     </div>
-  <div class="form-text">
-  <div class="actions">
-    <%= f.submit "Log in", class: "my-button-class" %>
-  </div>
-  <%= render "devise/shared/links" %>
-<% end %>
-</div>
-</div>
-<div class="container">
-<div class="banner">
-<%= image_tag("imagem_homepage.jpg", class: "img-fluid", alt: "amigos se divertindo",) %>
-</div>
-</div>
+
+    <div class="banner">
+      <%= image_tag("imagem_homepage.jpg", class: "img-fluid", alt: "amigos se divertindo",) %>
+    </div>
+  </body>
+</html>
