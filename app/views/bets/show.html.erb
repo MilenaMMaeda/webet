@@ -14,16 +14,18 @@
       <h5 class="card-title"><p>Description:</p></h5>
       <p class="card-text"><%= @bet.description %></p>
     </div>
-    <ul class="list-group list-group-flush"  >
-      <li class="list-group-item" style= "color: #606164;"><p>Amount: R$<%= @bet.amount %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>Result: <%= @bet.result %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>Status: <%= @bet.status %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>Max users: <%= @bet.max_users %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>Start date: <%= @bet.start_date %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>End date: <%= @bet.end_date %></p></li>
-      <li class="list-group-item" style= "color: #606164;"><p>Total prize: <%= @bet.user_bets.count * @bet.amount %></p></li>
-    </ul>
-    <div class="container" style="text-align: center; padding: 30px; margin: 20px; width: 450px; ">
+    <div style="padding: 50px;" >
+      <ul class="list-group list-group-flush"  >
+        <li class="list-group-item" style= "color: #606164;"><p>Amount: R$<%= @bet.amount %></p></li>
+        <li class="list-group-item" style= "color: #606164;"><p>Result: <%= @bet.result %></p></li>
+        <li class="list-group-item" style= "color: #606164;"><p>Status: <%= @bet.status %></p></li>
+        <li class="list-group-item" style= "color: #606164;"><p>Max users: <%= @bet.max_users %></p></li>
+        <li class="list-group-item" style= "color: #606164;"><p>Start date: <%= @bet.start_date %></p></li>
+        <li class="list-group-item" style= "color: #606164;"><p>End date: <%= @bet.end_date %></p></li>
+        <li class="list-group-item" style= "color: #606164; padding: 10px"><p>Total prize: <%= @bet.user_bets.count * @bet.amount %></p></li>
+      </ul>
+    </div>
+    <div class="container" style="text-align: center; width: 350px; ">
       <div class="d-flex justify-content-center">
         <form action= <%= "/bets/#{@bet.id}/user_bet_create" %> method="post">
           <button name="answer" value="true" class="btn-show" style="border-radius: 10px;"<%= (UserBet.where(user_id: current_user.id, bet_id: @bet.id).present? || (current_user.wallet.balance < @bet.amount) || !(@bet.start_date..@bet.end_date).cover?(Date.today)) ? "disabled" : "" %>>Bet for true</button>
@@ -43,10 +45,10 @@
       <%# <button class="btn btn-primary"><%= link_to "Back", bets_path %>
         <%=  link_to "Back", bets_path, style: " margin: 20px; margin-top: 0px; text-decoration: none; color: white; background-color: #606164; width: 80px; height; 35px; text-align: center; border-radius: 8px;  hover: green " %></p>
         <% if policy(@bet).destroy? %>
-          <%= link_to "Delete", delete_bet_path(@bet.id),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "Delete", delete_bet_path(@bet.id),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: " margin: 20px; text-decoration: none; color: white; background-color: #606164; width: 80px; height; 35px; text-align: center; border-radius: 8px;  hover: green " %>
         <% end %>
         <% if policy(@bet).edit? %>
-          <%= link_to "Enter Bet Result", edit_bet_path(@bet.id) %>
+          <%= link_to "Enter Bet Result", edit_bet_path(@bet.id), style: " margin: 20px; text-decoration: none; color: white; background-color: #606164; width: 80px; height; 35px; text-align: center; border-radius: 8px;  hover: green " %>
         <% end %>
       </div>
     </div>
