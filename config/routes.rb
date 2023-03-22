@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resource :wallet
   end
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+  # mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   post '/users/:user_id/wallet/update_balance', to: 'wallets#update_balance', as: 'update_balance'
 
