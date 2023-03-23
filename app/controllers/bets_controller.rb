@@ -47,7 +47,7 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     authorize @bet
 
-    if @bet.updated_once?
+    if @bet.update(bet_params)
       redirect_to @bet, notice: "Bet was successfully updated"
       # elsif @bet.update(bet_params.merge(updated_once: true))
       # redirect_to bets_path, alert: "Already updated once, contact support"
