@@ -48,9 +48,10 @@ class BetsController < ApplicationController
     authorize @bet
 
     if @bet.updated_once?
-      redirect_to bets_path, alert: "Already updated once, contact support"
-    elsif @bet.update(bet_params.merge(updated_once: true))
       redirect_to @bet, notice: "Bet was successfully updated"
+      # elsif @bet.update(bet_params.merge(updated_once: true))
+      # redirect_to bets_path, alert: "Already updated once, contact support"
+      # Comentamos para a apresentação.
     else
       render :edit, status: :unprocessable_entity
     end
