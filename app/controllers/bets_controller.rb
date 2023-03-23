@@ -36,11 +36,11 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     authorize @bet
 
-    if @bet.updated_once?
-      redirect_to bets_path, alert: "Already updated once, contact support"
-    else
-      render :edit
-    end
+    # if @bet.updated_once?
+    #   redirect_to bets_path, alert: "Already updated once, contact support"
+    # else
+    #   render :edit
+    # end
   end
 
   def update
