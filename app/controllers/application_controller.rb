@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
-  def default_url_options
-    { host: ENV["http://www.webet1020.me/"] || "localhost:3000" }
-  end
+  # def default_url_options
+  #   { host: ENV["http://www.webet1020.me/"] || "localhost:3000" }
+  # end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])

@@ -36,21 +36,22 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     authorize @bet
 
-    if @bet.updated_once?
-      redirect_to bets_path, alert: "Already updated once, contact support"
-    else
-      render :edit
-    end
+    # if @bet.updated_once?
+    #   redirect_to bets_path, alert: "Already updated once, contact support"
+    # else
+    #   render :edit
+    # end
   end
 
   def update
     @bet = Bet.find(params[:id])
     authorize @bet
 
-    if @bet.updated_once?
-      redirect_to bets_path, alert: "Already updated once, contact support"
-    elsif @bet.update(bet_params.merge(updated_once: true))
+    if @bet.update(bet_params)
       redirect_to @bet, notice: "Bet was successfully updated"
+      # elsif @bet.update(bet_params.merge(updated_once: true))
+      # redirect_to bets_path, alert: "Already updated once, contact support"
+      # Comentamos para a apresentação.
     else
       render :edit, status: :unprocessable_entity
     end

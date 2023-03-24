@@ -68,7 +68,7 @@
       <input type="num" class="wallet-form-control" maxlength="11" />
     </div>
     <div class="withdraw-label">
-      <%= f.input :withdraw_amount, collection: 10..1000, :input_html => { :class => 'withdraw-form-control', autocomplete: 'off'}, :label => 'Withdraw amount' %>
+      <%= f.input :withdraw_amount, :input_html => { :class => 'withdraw-form-control', autocomplete: 'off'}, :label => 'Withdraw amount' %>
       <%# <%= f.input :withdraw_amount, collection: [20, 50, 100, 200, 500, 1000, 1500, 2000] %>
       <div class="d-grid gap-2">
         <%= f.submit 'Withdraw', class: "btn btn-primary" %>
